@@ -1,0 +1,30 @@
+package com.imooc.diveinspringboot.service;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+/**
+ * Java7 for 循环实现
+ *
+ */
+
+@Profile("Java7")
+@Service
+public class Java7CalculateService implements CalculateService {
+    @Override
+    public Integer sum(Integer... values) {
+        System.err.println("Java7 for 循环实现");
+        int sum = 0;
+        System.err.println("values的长度：" + values.length);
+        for (int i = 0; i < values.length; i++) {
+            sum += values[i];
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        CalculateService calculateService = new Java7CalculateService();
+        System.out.println(calculateService.sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    }
+}
